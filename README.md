@@ -304,25 +304,6 @@ builder.Services.AddScoped<CreateOrderUseCase>();
 DB_PASSWORD=SuperSecret123!
 SONAR_TOKEN=squ_fffe674047730c4d28257dc9b9e3b7d0d4501985
 ```
-
-#### `.gitignore` (Actualizado)
-```
-# Environment variables
-.env
-*.env
-
-# SonarQube
-.sonarqube/
-.sonar/
-```
-
-**Razón del Cambio:**
-- **Security by Default**: Credenciales fuera del repositorio
-- **Compliance**: Cumple estándares de seguridad (OWASP)
-- **Flexibility**: Diferentes entornos (dev, staging, prod) usan diferentes `.env`
-
----
-
 ### 6. Comentarios y Documentación
 
 Cada archivo modificado incluye comentarios explicativos:
@@ -717,59 +698,3 @@ BadCleanArch/
 
 5. **Los principios SOLID no son teóricos**:
    - DIP permite unit tests sin base de datos real
-
-### Próximos Pasos Sugeridos
-
-Para continuar mejorando este proyecto:
-
-- [ ] **Testing**: Agregar unit tests con xUnit y Moq
-- [ ] **Validación**: Implementar FluentValidation en Application
-- [ ] **Logging**: Migrar a Serilog con structured logging
-- [ ] **API Docs**: Agregar Swagger/OpenAPI
-- [ ] **Health Checks**: Implementar health endpoints
-- [ ] **Docker**: Containerizar la aplicación
-- [ ] **CI/CD**: Pipeline con GitHub Actions
-- [ ] **Monitoring**: Integrar Application Insights
-
----
-
-## 📚 Referencias y Recursos
-
-### Arquitectura Limpia
-- 📖 [Clean Architecture - Robert C. Martin](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
-- 📖 [The Clean Architecture - Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures#clean-architecture)
-
-### Principios SOLID
-- 📖 [SOLID Principles - C# Corner](https://www.c-sharpcorner.com/UploadFile/damubetha/solid-principles-in-C-Sharp/)
-- 📖 [Dependency Inversion Principle](https://en.wikipedia.org/wiki/Dependency_inversion_principle)
-
-### SonarQube
-- 📖 [SonarQube Documentation](https://docs.sonarqube.org/)
-- 📖 [C# Rules - SonarSource](https://rules.sonarsource.com/csharp/)
-
-### Seguridad
-- 📖 [OWASP Top 10](https://owasp.org/www-project-top-ten/)
-- 📖 [12-Factor App - Config](https://12factor.net/config)
-
----
-
-## 👤 Autor
-
-**James Leonardo Martinez**
-- GitHub: [@jamesleonardomartinez](https://github.com/jamesleonardomartinez)
-- Proyecto: CorreccionArqLimParcial
-
----
-
-## 📝 Notas Finales
-
-- ✅ Este es un proyecto **educativo y demostrativo**
-- ✅ Muestra **transformación de código legacy a Clean Architecture**
-- ✅ Incluye **análisis con SonarQube** para métricas objetivas
-- ⚠️ **NO está diseñado para uso en producción** sin ajustes adicionales
-- 📚 Ideal para **aprender mejores prácticas de arquitectura de software**
-
----
-
-**Última actualización**: Noviembre 2025  
-**Versión**: 2.0 - Clean Architecture Refactored
