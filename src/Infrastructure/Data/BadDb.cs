@@ -6,8 +6,8 @@ namespace Infrastructure.Data;
 
 public static class BadDb
 {
-    // Corregido: Campo convertido a propiedad auto-implementada
-    public static string ConnectionString { get; set; } = "Server=localhost;Database=master;User Id=sa;Password=SuperSecret123!;TrustServerCertificate=True";
+    // Corregido: Inicializado sin contraseña hardcodeada - se configura desde Program.cs
+    public static string ConnectionString { get; set; } = string.Empty;
 
     // Corregido: Agregado try-catch y cierre de conexión
     public static int ExecuteNonQueryUnsafe(string sql)

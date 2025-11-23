@@ -4,6 +4,9 @@ using Infrastructure.Repositories;
 using Application.UseCases;
 using Application.Interfaces;
 
+// Cargar variables de entorno desde .env
+DotNetEnv.Env.Load();
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Logging.ClearProviders();
@@ -17,8 +20,9 @@ builder.Services.AddScoped<CreateOrderUseCase>();
 
 var app = builder.Build();
 
-BadDb.ConnectionString = app.Configuration["ConnectionStrings:Sql"]
-    ?? "Server=localhost;Database=master;User Id=sa;Password=SuperSecret123!;TrustServerCertificate=True";
+// Obtener password desde variable de entorno
+var dbPassword = Environment.GetEnvironmentVariable("DB_PASSWORD") ?? "DefaultPassword123!";
+BadDb.ConnectionString = $"Server=localhost;Database=master;User Id=sa;Password={dbPassword};TrustServerCertificate=True";
 
 app.UseCors("bad");
 
