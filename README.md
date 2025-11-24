@@ -396,46 +396,6 @@ public void CreateOrder_LogsCorrectly() {
 | **I**nterface Segregation | Interfaces pequeñas y específicas (`IAppLogger`) | No fuerzas dependencias innecesarias |
 | **D**ependency Inversion | Capas altas dependen de abstracciones | Desacoplamiento total |
 
-#### Escenarios de Evolución
-
-**Escenario 1: Agregar Autenticación**
-```
-✅ Crear nuevo Middleware en WebApi
-✅ NO tocar Domain, Application o Infrastructure
-⏱️ Tiempo estimado: 2-3 horas
-```
-
-**Escenario 2: Migrar a MongoDB**
-```
-✅ Crear MongoOrderRepository : IOrderRepository
-✅ Cambiar registro DI: AddScoped<IOrderRepository, MongoOrderRepository>
-✅ NO tocar Application o Domain
-⏱️ Tiempo estimado: 4-6 horas
-```
-
-**Escenario 3: Agregar Caché**
-```
-✅ Crear CachedOrderRepository : IOrderRepository (Decorator Pattern)
-✅ Wrappea el repository existente
-✅ NO tocar lógica de negocio
-⏱️ Tiempo estimado: 2-4 horas
-```
-
-**Escenario 4: Migrar a Microservicios**
-```
-✅ Domain y Application se mueven tal cual
-✅ Crear nuevo WebApi para cada microservicio
-✅ Infraestructura específica por servicio
-⏱️ Tiempo estimado: 1-2 semanas (vs. reescritura completa)
-```
-
-#### Protección contra Cambios
-- **Framework Changes**: ASP.NET Core 8 → 9 = Solo actualizar WebApi
-- **Database Changes**: SQL → NoSQL = Solo Infrastructure
-- **Business Rules**: Nuevas validaciones = Solo Domain/Application
-
----
-
 ### 4. Seguridad (Security)
 
 #### Vulnerabilidades Eliminadas
